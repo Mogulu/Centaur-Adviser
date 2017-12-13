@@ -98,7 +98,7 @@ catch (Exception $e)
       <div class="panel panel-danger">
         <div class="panel-heading"><?=$data['title']?></div>
         <div class="panel-body"><img src="<?=$data['vignette_url']?>" class="img-responsive" style="width:100%" alt="image"></div>
-        <div class="panel-footer"><?=$data['content']?></div>
+        <div class="panel-footer"><?=$data['resume']?></div>
       </div> 
     </div>
     
