@@ -13,7 +13,7 @@ catch (Exception $e)
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Article Recomender</title>
+  <title>Centaur Adviser</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,8 +26,8 @@ catch (Exception $e)
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Article recommender</h1>      
-    <p>PFE 5A 2017-2018</p>
+    <h1>Centaur Adviser</h1>      
+    <p>Your articles, for you by you</p>
   </div>
 </div>
 
