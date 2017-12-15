@@ -59,8 +59,7 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
     }
     else
     {
-        echo "<h1>Error</h1>";
-        echo "<p>Sorry, your account could not be found. Please <a href=\"account.php\">click here to try again</a>.</p>";
+        header('Location: error_login.php');
     }
 }
 else
@@ -75,10 +74,11 @@ else
 </script>
 <p><a style="cursor: pointer;"  id="register">click here to register</a>.</p>
 
-<form method="post" action="account.php" name="loginform" id="loginform">
+<form class="form-inline" method="post" action="account.php" name="loginform" id="loginform">
     <fieldset>
-        <label for="username">Username:</label><input type="text" name="username" id="username" /><br />
-        <label for="password">Password:</label><input type="password" name="password" id="password" /><br />
+        <input type="text" name="username" id="username" class="form-control" size="50" placeholder="Username"><br />
+        <input type="password" name="password" id="password" class="form-control" size="50" placeholder="password"><br />
+
         <input class="btn btn-success" type="submit" name="login" id="login" value="Login" />
     </fieldset>
 </form>

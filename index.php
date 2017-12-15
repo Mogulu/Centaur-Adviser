@@ -23,7 +23,7 @@ catch (Exception $e)
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="jquerry.js"></script>
 
-        
+
     </head>
 
     <body>
@@ -34,7 +34,7 @@ catch (Exception $e)
                 </div>
             </div>
         </a>
-
+        
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -66,8 +66,8 @@ catch (Exception $e)
                     <ul class="nav navbar-nav navbar-right">
                         <li><a style="cursor: pointer;"  id="account"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
                         <?php
-                        if (!empty($_SESSION['Username']))
-                        {
+            if (!empty($_SESSION['Username']))
+            {
                         ?>
                         <li class="disabled" ><a style="cursor: text; color:#EEE"> Welcome    <code><?=$_SESSION['Username']?></code></a></li>
                         <?php } ?>  
@@ -81,12 +81,8 @@ catch (Exception $e)
 
         </div>
 
-        <footer class="container-fluid text-center">
-            <p>Online Store Copyright</p>  
-            <form class="form-inline">Get deals:
-                <input type="email" class="form-control" size="50" placeholder="Email Address">
-                <button type="button" class="btn btn-danger">Sign Up</button>
-            </form>
+        <footer style="color:white" class="footer container-fluid text-center">
+            <p>Centaur Adviser Copyright</p>  
         </footer
 
             </body>

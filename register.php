@@ -1,10 +1,6 @@
 <?php include "base.php"; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">  
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-
-<link rel="stylesheet" href="style.css" type="text/css" />
-</head>  
+ 
 <body>  
 <div id="main">
 <?php
@@ -46,10 +42,10 @@ else
      
     <form method="post" action="register.php" name="registerform" id="registerform">
     <fieldset>
-        <label for="username">Username:</label><input type="text" name="username" id="username" /><br />
-        <label for="password">Password:</label><input type="password" name="password" id="password" /><br />
-        <label for="email">Email Address:</label><input type="text" name="email" id="email" /><br />
-        <input type="submit" name="register" id="register" value="Register" />
+        <input type="text" name="username" id="username" class="form-control" size="50" placeholder="Username"><br />
+        <input type="password" name="password" id="password" class="form-control" size="50" placeholder="Password"><br />
+        <input type="email" name="email" id="email" class="form-control" size="50" placeholder="Email Address"><br />
+        <input class="btn btn-success" type="submit" name="register" id="register" value="Register" />
     </fieldset>
     </form>
      

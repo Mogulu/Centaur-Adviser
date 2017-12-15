@@ -16,16 +16,14 @@ ul {
     background-color:#2F393B;
 }
 
-footer {
-    background-color: #2F393B;
-    padding:20px;
-}
-
-
 body {
     font-family: Trebuchet MS;
     height: 100%;
 
+}
+footer{
+    background-color: dimgrey;
+    padding-top:10px;
 }
 a {
     color: #000;
