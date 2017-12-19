@@ -1,7 +1,18 @@
 <?php include "base.php"; ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+    <head>
+        <title>Centaur Adviser</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css" />
 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+    </head>
 
 
 <?php
@@ -10,7 +21,7 @@
 
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 {
-    // let the user access the main page
+    
 }
 elseif(!empty($_POST['username']) && !empty($_POST['password']))
 {
@@ -28,7 +39,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 ?>
 
 <h1>Member Area</h1>
-<pThanks for logging in! You are <code><?=$_SESSION['Username']?></code> and your email address is <code><?=$_SESSION['EmailAddress']?></code>.</p>
+<p Thanks for logging in! You are <code><?=$_SESSION['Username']?></code> and your email address is <code><?=$_SESSION['EmailAddress']?></code>.</p>
 <form method="post" action="logout.php" name="logoutform" id="logoutform">
     <fieldset>
         <input class="btn btn-danger" type="submit" name="logout" id="logout" value="Logout" />
@@ -55,7 +66,15 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
 
         echo "<h1>Success</h1>";
         echo "<p>We are now redirecting you to the member area.</p>";
-        header('Location: index.php');
+        
+        if ($_SESSION['ColdStart'] == 1)
+        {
+            header('Location: cold_start.php');
+        }
+        else{
+            header('Location: index.php');
+        }
+        
     }
     else
     {

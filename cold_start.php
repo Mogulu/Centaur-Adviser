@@ -1,10 +1,5 @@
 <?php include "base.php"; ?>
 <?php
-
-if(empty($_SESSION['LoggedIn']) && empty($_SESSION['Username']))
-{
-    header('Location: account.php');
-}
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=pfe;charset=utf8', 'root', '');
@@ -51,23 +46,7 @@ catch (Exception $e)
                 </div>
 
                 <div class="collapse navbar-collapse myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a style="cursor: pointer;"  id="home" >Home</a></li>
-                        <li><a style="cursor: pointer;"  id="history">History</a></li>
-                        <li><a style="cursor: pointer;"  id="news">News</a></li>
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse<b class="caret"></b></a> 
-
-                            <ul class="dropdown-menu">
-                                <li class="kopie"><a href="#">Health</a></li>
-                                <li><a href="#">Network</a></li>
-                                <li class="active"><a href="#">Politic</a></li>
-                                <li><a href="#">Science</a></li>
-
-                            </ul>
-                        </li>
-                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a style="cursor: pointer;"  id="account"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
                         <?php
@@ -82,13 +61,37 @@ catch (Exception $e)
 
         </nav>
 
-        <div id="main" class="fill">
+<!-- CATEGORIES!!!-->
+<div class="container">
+    <?php 
 
+    $categories = $bdd->query("SELECT * FROM categories");
+
+    while ($data = $categories->fetch())
+    { ?>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-info">
+                <div class="panel-heading"><?=$data['name']?></div>
+                <div class="panel-body"><img src="<?=$data['imageURLL']?>" class="img-responsive" style="height:200px" alt="image"></div>
+            </div> 
         </div>
 
+        <?php
+    }
+        ?>
+
+
+    </div>
+</div>
+
+</body>
         <footer style="color:white" class="footer container-fluid text-center">
             <p>Centaur Adviser Copyright</p>  
-        </footer
+        </footer    
+</html>
 
-            </body>
-            </html>
+<script type="application/javascript"> 
+            
+
+            </script>

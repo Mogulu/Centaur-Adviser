@@ -1,6 +1,13 @@
 <?php include "base.php"; ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
- 
+<!DOCTYPE html>
+    <head>
+        <title>Centaur Adviser</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
 <body>  
 <div id="main">
 <?php
@@ -22,6 +29,7 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
         $registerquery = mysql_query("INSERT INTO users (Username, Password, EmailAddress) VALUES('".$username."', '".$password."', '".$email."')");
         if($registerquery)
         {
+            $_SESSION['ColdStart'] = 1;
             echo "<h1>Success</h1>";
             echo "<p>Your account was successfully created. Please <a href=\"account.php\">click here to login</a>.</p>";
         }
