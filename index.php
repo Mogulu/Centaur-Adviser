@@ -1,4 +1,6 @@
-<?php include "base.php"; ?>
+<?
+ini_set('display_errors',1);
+php include "base.php"; ?>
 <?php
 
 if(empty($_SESSION['LoggedIn']) && empty($_SESSION['Username']))
