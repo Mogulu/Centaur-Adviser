@@ -27,7 +27,7 @@ php include "base.php"; ?>
                 </div>
             </div>
         </a>
-        
+
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -59,8 +59,8 @@ php include "base.php"; ?>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a style="cursor: pointer;"  id="account"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
                         <?php
-            if (!empty($_SESSION['Username']))
-            {
+                        if (!empty($_SESSION['Username']))
+                        {
                         ?>
                         <li class="disabled" ><a style="cursor: text; color:#EEE"> Welcome    <code><?=$_SESSION['Username']?></code></a></li>
                         <?php } ?>  
@@ -71,12 +71,11 @@ php include "base.php"; ?>
         </nav>
 
         <div id="main" class="fill">
-
         </div>
 
         <footer style="color:white" class="footer container-fluid text-center">
             <p>Centaur Adviser Copyright</p>  
-        </footer
+        </footer>
 
-            </body>
-            </html>
+    </body>
+</html>

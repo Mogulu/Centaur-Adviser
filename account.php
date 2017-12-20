@@ -1,18 +1,18 @@
 <?php include "base.php"; ?>
 
 <!DOCTYPE html>
-    <head>
-        <title>Centaur Adviser</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css" />
+<head>
+    <title>Centaur Adviser</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
-    </head>
+</head>
 
 
 <?php
@@ -21,7 +21,7 @@
 
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 {
-    
+
 }
 elseif(!empty($_POST['username']) && !empty($_POST['password']))
 {
@@ -66,7 +66,7 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
 
         echo "<h1>Success</h1>";
         echo "<p>We are now redirecting you to the member area.</p>";
-        
+
         if ($_SESSION['ColdStart'] == 1)
         {
             header('Location: cold_start.php');
@@ -74,7 +74,7 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
         else{
             header('Location: index.php');
         }
-        
+
     }
     else
     {
