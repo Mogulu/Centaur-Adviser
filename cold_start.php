@@ -48,7 +48,6 @@ catch (Exception $e)
                 <div class="collapse navbar-collapse myNavbar">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a style="cursor: pointer;"  id="account"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
                         <?php
                         if (!empty($_SESSION['Username']))
                         {

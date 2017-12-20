@@ -1,6 +1,16 @@
-<?
-ini_set('display_errors',1);
-php include "base.php"; ?>
+<?php include "base.php"; 
+
+if($_SESSION['LoggedIn']!=1)
+{
+    header('Location: account.php');
+}
+
+if($_SESSION['ColdStart'] == 1)
+{
+    header('Location: cold_start.php');
+}
+
+?>
 
 
 <!DOCTYPE html>

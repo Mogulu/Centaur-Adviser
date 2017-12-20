@@ -1,6 +1,9 @@
 <?php include "base.php"; ?>
 
 <!DOCTYPE html>
+
+
+
 <head>
     <title>Centaur Adviser</title>
     <meta charset="utf-8">
@@ -8,11 +11,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css" />
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
 </head>
+
 
 
 <?php
@@ -91,7 +91,7 @@ else
         $("#main").load("register.php");
     });
 </script>
-<p><a style="cursor: pointer;"  id="register">click here to register</a>.</p>
+<p><a style="cursor: pointer;"  id="register" href="register.php">click here to register</a>.</p>
 
 <form class="form-inline" method="post" action="account.php" name="loginform" id="loginform">
     <fieldset>
