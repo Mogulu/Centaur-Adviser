@@ -35,26 +35,36 @@ VALUES (NULL, 'jojolabricot','clara','2017-05-25',NULL ,NULL, 'Network', 'img/4.
 INSERT INTO `pfe`.article_list (`id`, `title`,`author`,`date`,`rate`,`number_rate`,`category`,`vignette_url`,`resume`,`content`)
 VALUES (NULL, 'loreneipsips','urabnfoot','2017-10-05',NULL ,NULL, 'Network', 'img/5.jpg','ah baaaaah oui', '<div class="panel-footer">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</div>');
 
-CREATE TABLE `pfe`.`categories` (
-`id` INT(255) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-`name` VARCHAR(255) NOT NULL ,
-`imageURLL` VARCHAR(255) NOT NULL
-);
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `imageURLL` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
-INSERT INTO `pfe`.categories (`id`, `name`,`imageURLL`)
-VALUES (NULL, 'animals','img/categories/animals.png');
+--
+-- Dumping data for table `categories`
+--
 
-INSERT INTO `pfe`.categories (`id`, `name`,`imageURLL`)
-VALUES (NULL, 'computer-science','img/categories/computer-science.jpg');
-
-INSERT INTO `pfe`.categories (`id`, `name`,`imageURLL`)
-VALUES (NULL, 'health','img/categories/health.jpg');
-
-INSERT INTO `pfe`.categories (`id`, `name`,`imageURLL`)
-VALUES (NULL, 'house','img/categories/house.jpg');
-
-INSERT INTO `pfe`.categories (`id`, `name`,`imageURLL`)
-VALUES (NULL, 'kids','img/categories/kids.jpg');
-
-INSERT INTO `pfe`.categories (`id`, `name`,`imageURLL`)
-VALUES (NULL, 'travels','img/categories/travels.jpg');
+INSERT INTO `categories` (`id`, `name`, `imageURLL`) VALUES
+(1, 'animals', 'img/categories/animals.png'),
+(2, 'computer-science', 'img/categories/computer-science.jpg'),
+(3, 'health', 'img/categories/health.jpg'),
+(4, 'house', 'img/categories/house.jpg'),
+(5, 'kids', 'img/categories/kids.jpg'),
+(6, 'travels', 'img/categories/travels.jpg'),
+(7, 'politic', 'img/categories/politic.jpg'),
+(8, 'network', 'img/categories/network.jpg'),
+(9, 'mathematics', 'img/categories/mathematics.jpg'),
+(10, 'physics', 'img/categories/physics.jpg'),
+(11, 'gaming', 'img/categories/gaming.jpg'),
+(12, 'film', 'img/categories/film.jpg'),
+(13, 'books', 'img/categories/books.jpg'),
+(14, 'youtube', 'img/categories/youtube.jpg'),
+(15, 'art', 'img/categories/art.jpg'),
+(16, 'sport', 'img/categories/sport.jpg'),
+(17, 'finance', 'img/categories/finance.jpg'),
+(18, 'architecture', 'img/categories/architecture.jpg'),
+(19, 'music', 'img/categories/music.jpg'),
+(20, 'mode', 'img/categories/mode.jpg');

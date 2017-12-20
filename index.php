@@ -1,21 +1,7 @@
 <?
 ini_set('display_errors',1);
 php include "base.php"; ?>
-<?php
 
-if(empty($_SESSION['LoggedIn']) && empty($_SESSION['Username']))
-{
-    header('Location: account.php');
-}
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=pfe;charset=utf8', 'root', '');
-}
-catch (Exception $e)
-{
-    die('Erreur : ' . $e->getMessage());
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
