@@ -5,6 +5,11 @@ if($_SESSION['LoggedIn']!=1)
     header('Location: account.php');
 }
 
+if($_SESSION['ColdStart'] == 1)
+{
+    header('Location: cold_start.php');
+}
+
 ?>
 
 
