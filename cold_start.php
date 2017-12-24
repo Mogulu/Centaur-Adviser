@@ -66,13 +66,20 @@ catch (Exception $e)
 
             $categories = $bdd->query("SELECT * FROM categories");
 
+
+
+
             while ($data = $categories->fetch())
             { ?>
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="panel-info">
-                        <div class="panel-heading"><?=$data['name']?></div>
-                        <div class="panel-body"><img src="<?=$data['imageURLL']?>" class="img-responsive" style="height:200px" alt="image"></div>
+                    <div class="panel-info" id="<?=$data['id']?>" onClick="reply_click(this.id)">
+                        <div class="panel-heading" ><?=$data['name']?></div>
+                        <div class="panel-body"><img src="<?=$data['imageURLL']?>" class="img-responsive" style="height:300px" alt="image"></div>
+                        <script>
+                            $(this)
+                        </script>
+
                     </div> 
                 </div>
 
@@ -80,17 +87,65 @@ catch (Exception $e)
             }
                 ?>
                 <script>
-                    $('.panel-body')
-                        .css('cursor', 'pointer')
-                        .click(
-                        function(){
-                            alert($(this).className);
+                    var counter = 0;
+                    var categories = [];
+                    function reply_click(clicked_id)
+                    {
+                        counter++;
+                        categories.push(clicked_id);
+
+
+
+                        for (var i = 0; i < counter -1; i++) {
+                            if (categories[i] === clicked_id) 
+                            {   
+                                categories.splice(i,1 );
+                                counter -= 2;
+                                categories.pop();
+                            }else{
+
+                            }
 
                         }
-                    )
+
+                        if(counter === 5){
+                            
+                           var mysql = require('mysql');
+
+                            var con = mysql.createConnection({
+                                host: "localhost",
+                                user: "root",
+                                password: "",
+                                database: "pfe"
+                            });
+
+                            con.connect(function(err) {
+                                if (err) throw err;
+                                console.log("Connected!");
+                                var sql = "INSERT INTO users (categories) VALUES ? WHERE username = '".$_SESSION['Username']."'";
+                                var values = categories;
+                                ];
+                                con.query(sql, [values], function (err, result) {
+                                    if (err) throw err;
+                                    console.log("Number of records inserted: " + result.affectedRows);
+                                });
+                            });
+
+
+                            window.location = 'index.php';
+                        }
+
+
+                       // console.log(counter + " " + categories);
+
+
+                    }  
+
+                    $('.panel-info')
+                        .css('cursor', 'pointer')
                         .hover(
                         function(){
-                            $(this).css('color', '#ff00ff');
+                            $(this).css('background', '#ff00ff');
                             $(this).className="panel panel-default";
 
                         },

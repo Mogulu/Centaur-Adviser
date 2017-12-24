@@ -1,10 +1,11 @@
-DROP TABLE IF EXISTS `pfe`.article_list ;
+DROP TABLE IF EXISTS `pfe`.article_list, `pfe`.users ;
 
 CREATE TABLE `pfe`.`users` (
-`UserID` INT(25) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-`Username` VARCHAR(65) NOT NULL ,
-`Password` VARCHAR(32) NOT NULL ,
-`EmailAddress` VARCHAR(255) NOT NULL
+    `UserID` INT(25) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    `Username` VARCHAR(65) NOT NULL ,
+    `Password` VARCHAR(32) NOT NULL ,
+    `EmailAddress` VARCHAR(255) NOT NULL,
+    `Categories` VARCHAR(65) NOT NULL
 );
 
 CREATE TABLE `pfe`.`article_list` (
@@ -37,10 +38,10 @@ VALUES (NULL, 'loreneipsips','urabnfoot','2017-10-05',NULL ,NULL, 'Network', 'im
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `imageURLL` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+    `id` int(255) NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) NOT NULL,
+    `imageURLL` varchar(255) NOT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
