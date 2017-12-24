@@ -109,30 +109,9 @@ catch (Exception $e)
                         }
 
                         if(counter === 5){
-                            
-                           var mysql = require('mysql');
-
-                            var con = mysql.createConnection({
-                                host: "localhost",
-                                user: "root",
-                                password: "",
-                                database: "pfe"
-                            });
-
-                            con.connect(function(err) {
-                                if (err) throw err;
-                                console.log("Connected!");
-                                var sql = "INSERT INTO users (categories) VALUES ? WHERE username = '".$_SESSION['Username']."'";
-                                var values = categories;
-                                ];
-                                con.query(sql, [values], function (err, result) {
-                                    if (err) throw err;
-                                    console.log("Number of records inserted: " + result.affectedRows);
-                                });
-                            });
-
-
-                            window.location = 'index.php';
+                            // Mettre session à 0
+                            // Rediriger index
+                            // stocker categories dans user
                         }
 
 
