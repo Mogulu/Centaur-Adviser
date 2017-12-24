@@ -109,13 +109,14 @@ catch (Exception $e)
                         }
 
                         if(counter === 5){
-                            // Mettre session à 0
-                            // Rediriger index
-                            // stocker categories dans user
+                            
+                            window.location.href = "ColdSubmit.php?cat=" + categories; 
+
                         }
 
 
-                       // console.log(counter + " " + categories);
+                        console.log(counter + " " + categories);
+
 
 
                     }  

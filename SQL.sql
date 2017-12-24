@@ -5,7 +5,7 @@ CREATE TABLE `pfe`.`users` (
     `Username` VARCHAR(65) NOT NULL ,
     `Password` VARCHAR(32) NOT NULL ,
     `EmailAddress` VARCHAR(255) NOT NULL,
-    `Categories` VARCHAR(65) NOT NULL
+    `Categories` VARCHAR(65) NULL
 );
 
 CREATE TABLE `pfe`.`article_list` (

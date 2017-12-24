@@ -1,5 +1,4 @@
-<?php include "base.php"; ?>
-<?php
+<?php include "base.php";
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=pfe;charset=utf8', 'root', '');
