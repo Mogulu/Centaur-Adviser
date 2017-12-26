@@ -66,3 +66,7 @@ input:hover {
     border: 1px solid #222;
     background-color: #EEE;
 }
+
+.checked {
+    color: orange;
+}

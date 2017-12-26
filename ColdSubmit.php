@@ -16,7 +16,7 @@ $categories = $_GET['cat'];
 $bdd->query("UPDATE users SET Categories = '".$categories."' WHERE Username = '".$_SESSION['Username']."'");
 
 // Mettre session Cold Start à 0
-$_SESSION['ColdStart'] = 0; 
+$_SESSION['ColdStart'] = null; 
 
 header('Location: index.php');
 

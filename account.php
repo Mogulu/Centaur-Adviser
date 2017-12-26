@@ -16,31 +16,10 @@
 
 
 <?php
-
-
-
-if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
-{
-
-}
-elseif(!empty($_POST['username']) && !empty($_POST['password']))
-{
-    // let the user login
-}
-else
-{
-    // display the login form
-}
-?>
-
-<?php
 if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 {
 ?>
 
-<script>
-
-</script>
 
 <h1>Member Area</h1>
 <p Thanks for logging in! You are <code><?=$_SESSION['Username']?></code> and your email address is <code><?=$_SESSION['EmailAddress']?></code>.</p>

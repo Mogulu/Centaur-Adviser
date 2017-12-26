@@ -5,8 +5,7 @@ if($_SESSION['LoggedIn']!=1)
     header('Location: account.php');
 }
 
-// remettre à coldstart == 1
-if($_SESSION['ColdStart'] == 1)
+if(!empty($_SESSION['ColdStart']))
 {
     header('Location: cold_start.php');
 }

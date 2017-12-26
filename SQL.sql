@@ -19,7 +19,7 @@ CREATE TABLE `pfe`.`article_list` (
     `vignette_url` MEDIUMTEXT COLLATE utf8_unicode_ci,
     `resume` MEDIUMTEXT COLLATE utf8_unicode_ci,
     `content` TEXT COLLATE utf8_unicode_ci, 
-    `hits` TEXT COLLATE utf8_unicode_ci
+    `rating` int(11)
 );
 
 INSERT INTO `pfe`.article_list (`id`, `title`,`author`,`date`,`rate`,`number_rate`,`category`,`vignette_url`,`resume`,`content`)
