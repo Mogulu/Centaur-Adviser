@@ -102,7 +102,8 @@ table th {
 
 <script type="text/javascript">
 const ratings = {
-  ArticleRating : 2.5,
+    
+  ArticleRating : '<?php echo $data['rating']; ?>',
 };
 
 // total number of stars

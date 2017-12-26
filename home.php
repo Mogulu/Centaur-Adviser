@@ -87,7 +87,7 @@ catch (Exception $e)
         <div class="col-sm-4">
             <div class="panel panel-info" id="<?=$data['id']?>" onClick="article_click(this.id)">
                 <div class="panel-heading"><?=$data['title']?></div>
-                <div class="panel-body"><img src="<?=$data['vignette_url']?>" class="img-responsive" style="width:100%" alt="image"></div>
+                <div class="panel-body"><img src="<?=$data['vignette_url']?>" class="img-responsive" style="height:150px" alt="image"></div>
                 <div class="panel-footer"><?=$data['resume']?></div>
                 <script>
                     function article_click(clicked_id){
