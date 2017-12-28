@@ -35,6 +35,14 @@ catch (Exception $e)
 
 
     </head>
+    <style>
+    #plusieurs_colonnes{
+    -moz-column-count: 4;
+    -webkit-column-count: 4;
+    column-count: 4;
+    list-style: none;
+}
+    </style>
 
     <body>
         <a href="index.php">
@@ -64,14 +72,16 @@ catch (Exception $e)
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse<b class="caret"></b></a> 
 
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" id="plusieurs_colonnes">
                                 <?php
                                 
                                 $select = $bdd->query("SELECT * FROM categories");
-                                while ($Cat = $select->fetch());
+                                
+                                while ($Cat = $select->fetch())
                                 {
                                 ?>
-                                <li class="kopie"><a href="#"> <?$Cat['name'] ?></a></li>
+                                
+                                <li class="kopie"><a href="#"> <?php echo $Cat['name'] ?> </a></li>
                                 
                                 <?php }
                                 ?>
