@@ -72,3 +72,14 @@ INSERT INTO `categories` (`id`, `name`, `imageURLL`) VALUES
 (18, 'architecture', 'img/categories/architecture.jpg'),
 (19, 'music', 'img/categories/music.jpg'),
 (20, 'mode', 'img/categories/mode.jpg');
+
+
+DROP TABLE IF EXISTS `pfe`.historic;
+CREATE TABLE `pfe`.`historic` (
+    `id` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
+    `UserID` INT(25),
+    `rating` int(11),
+    `articleId` int(11),
+    `date` datetime
+
+);

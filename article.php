@@ -16,11 +16,14 @@ catch (Exception $e)
     die('Erreur : ' . $e->getMessage());
 }
 
+
+
 $id_article = $_POST['id'];
-
 $article = $bdd->query("SELECT * FROM article_list WHERE id = $id_article LIMIT 1");
-
 $data = $article->fetch();
+
+$bdd->query("INSERT INTO `historic` ( `UserID`,`articleId`, `date`) VALUES( 1, ),");
+
 
 ?>
 <style>
