@@ -1,5 +1,7 @@
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 </head>
 
 <?php include "base.php";
@@ -16,105 +18,97 @@ catch (Exception $e)
 
 $id_article = $_POST['id'];
 
-$article = $bdd->query("SELECT * FROM article_list WHERE id = $id_article ");
+$article = $bdd->query("SELECT * FROM article_list WHERE id = $id_article LIMIT 1");
 $data = $article->fetch();
 
 ?>
-
 <style>
-table {
-  margin: 0 auto;
-  text-align: center;
-  border-collapse: collapse;
-  border: 1px solid #d4d4d4;
-  font-size: 20px;
-  background: #fff;
-}
+    .rate-area {
+        float:left;
+        border-style: none;
+    }
 
-table th, 
-table tr:nth-child(2n+2) {
-  background: #e7e7e7;
-}
- 
-table th, 
-table td {
-  padding: 20px 50px;
-}
- 
-table th {
-  border-bottom: 1px solid #d4d4d4;
-}     
+    .rate-area:not(:checked) > input {
+        position:absolute;
+        top:-9999px;
+        clip:rect(0,0,0,0);
+    }
 
-.stars-outer {
-  display: inline-block;
-  position: relative;
-  font-family: FontAwesome;
-}
+    .rate-area:not(:checked) > label {
+        float:right;
+        width:1em;
+        padding:0 .1em;
+        overflow:hidden;
+        white-space:nowrap;
+        cursor:pointer;
+        font-size:400%;
+        line-height:1.2;
+        color:lightgrey;
+        text-shadow:1px 1px #bbb;
+    }
 
-.stars-outer::before {
-  content: "\f006 \f006 \f006 \f006 \f006";
-}
+    .rate-area:not(:checked) > label:before {
+        content: '★ ';
+    }
 
-.stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-}
+    .rate-area > input:checked ~ label {
+        color: gold;
+        text-shadow:1px 1px #c60;
+        font-size:450% !important;
+    }
 
-.stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
-  color: #f8ce0b;
-}
+    .rate-area:not(:checked) > label:hover,
+    .rate-area:not(:checked) > label:hover ~ label {
+        color: gold;
 
-.attribution {
-  font-size: 12px;
-  color: #444;
-  text-decoration: none;
-  text-align: center;
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-  z-index: -1;
-}
-.attribution:hover {
-  color: #1fa67a;
-}
+    }
+
+    .rate-area > input:checked + label:hover,
+    .rate-area > input:checked + label:hover ~ label,
+    .rate-area > input:checked ~ label:hover,
+    .rate-area > input:checked ~ label:hover ~ label,
+    .rate-area > label:hover ~ input:checked ~ label {
+        color: gold;
+        text-shadow: 1px 1px goldenrod;   
+
+    }
+
+    .rate-area > label:active {
+        position:relative;
+        top:2px;
+        left:2px;
+    }
+
 </style>
-
 <h1> <?=$data['title']?> </h1>
 <p> <?=$data['content']?> </p>
 
+<body>
+    <section>
+        <ul class="rate-area" id="SetRate">
+            <hr />
+            <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+            <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+            <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+            <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
+            <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
 
-<table>
-  <tbody>
-    <tr class="ArticleRating">
-      <td>
-        <div class="stars-outer">
-          <div class="stars-inner"></div>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        </ul>
+
+    </section>
+
+</body>
 
 <script type="text/javascript">
-const ratings = {
     
-  ArticleRating : '<?php echo $data['rating']; ?>',
-};
+    
 
-// total number of stars
-const starTotal = 5;
-
-for(const rating in ratings) {  
-  const starPercentage = (ratings[rating] / starTotal) * 100;
-  const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
-  document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded; 
-}
-
+    $('#SetRate').click(function(){
+        
+        var Rate = $("input[name='rating']:checked").val();
+        console.log(Rate);
+        
+        });
+    
 </script>
-
 

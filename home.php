@@ -72,8 +72,6 @@ catch (Exception $e)
     </div>
 </div>
 
-
-</div><br>
 <!-- NEW POSTS !!!-->
 <div class="container">
     <a> NEW POSTS </a>
@@ -91,7 +89,7 @@ catch (Exception $e)
                 <div class="panel-footer"><?=$data['resume']?></div>
                 <script>
                     function article_click(clicked_id){
-                        console.log(clicked_id);
+                        //console.log(clicked_id);
                         var datastr = 'id='+clicked_id;
                         $("#main").load("article.php",{"id":clicked_id});
                         $.ajax({
@@ -99,7 +97,7 @@ catch (Exception $e)
                             url:'article.php',
                             data:datastr,
                             success:function(){
-                                console.log("POST SUCCESS");
+                                //console.log("POST SUCCESS");
                             }
 
                         });

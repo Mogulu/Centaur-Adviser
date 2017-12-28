@@ -9,7 +9,14 @@ if(!empty($_SESSION['ColdStart']))
 {
     header('Location: cold_start.php');
 }
-
+try
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=pfe;charset=utf8', 'root', '');
+}
+catch (Exception $e)
+{
+    die('Erreur : ' . $e->getMessage());
+}
 ?>
 
 
@@ -58,11 +65,16 @@ if(!empty($_SESSION['ColdStart']))
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse<b class="caret"></b></a> 
 
                             <ul class="dropdown-menu">
-                                <li class="kopie"><a href="#">Health</a></li>
-                                <li><a href="#">Network</a></li>
-                                <li class="active"><a href="#">Politic</a></li>
-                                <li><a href="#">Science</a></li>
-
+                                <?php
+                                
+                                $select = $bdd->query("SELECT * FROM categories");
+                                while ($Cat = $select->fetch());
+                                {
+                                ?>
+                                <li class="kopie"><a href="#"> <?$Cat['name'] ?></a></li>
+                                
+                                <?php }
+                                ?>
                             </ul>
                         </li>
                     </ul>
