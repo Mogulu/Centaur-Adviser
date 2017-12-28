@@ -10,7 +10,7 @@ catch (Exception $e)
 ?>
 
 <div class="container">
-    <a> RECOMENDATION </a>
+    <h1 class="display-1" style="text-align: center;"> RECOMENDATION </h1>
     <?php 
     
     $select = $bdd->query("SELECT * FROM users WHERE Username = '".$_SESSION['Username']."'");
@@ -26,11 +26,11 @@ catch (Exception $e)
             $data = $articles->fetch();
      
     ?>
-    <div class="row">
-        <div class="col-sm-4">
+    <div class="row align-items-start">
+        <div class="col-sm-2 ">
             <div class="panel panel-info" id="<?=$data['id']?>" onClick="article_click(this.id)">
                 <div class="panel-heading"><?=$data['title']?></div>
-                <div class="panel-body"><img src="<?=$data['vignette_url']?>" class="img-responsive" style="height:150px" alt="image"></div>
+                <div class="panel-body "><img src="<?=$data['vignette_url']?>" class="img-responsive" alt="image"></div>
                 <div class="panel-footer"><?=$data['resume']?></div>
                 <script>
                     function article_click(clicked_id){
@@ -74,7 +74,7 @@ catch (Exception $e)
 
 <!-- NEW POSTS !!!-->
 <div class="container">
-    <a> NEW POSTS </a>
+    <h1 class="display-1" style="text-align: center;"> NEW POSTS </h1>
     <?php 
 
     $articles = $bdd->query("SELECT * FROM article_list ORDER BY id DESC");
@@ -82,10 +82,10 @@ catch (Exception $e)
     while ($data = $articles->fetch())
     { ?>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <div class="panel panel-info" id="<?=$data['id']?>" onClick="article_click(this.id)">
                 <div class="panel-heading"><?=$data['title']?></div>
-                <div class="panel-body"><img src="<?=$data['vignette_url']?>" class="img-responsive" style="height:150px" alt="image"></div>
+                <div class="panel-body"><img src="<?=$data['vignette_url']?>" class="img-responsive" alt="image"></div>
                 <div class="panel-footer"><?=$data['resume']?></div>
                 <script>
                     function article_click(clicked_id){
