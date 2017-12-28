@@ -42,10 +42,13 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
     {
         $row = mysql_fetch_array($checklogin);
         $email = $row['EmailAddress'];
-
+        $userId = $row['UserID'];
+        
         $_SESSION['Username'] = $username;
         $_SESSION['EmailAddress'] = $email;
         $_SESSION['LoggedIn'] = 1;
+        $_SESSION['UserId'] = $userId;
+
 
         echo "<h1>Success</h1>";
         echo "<p>We are now redirecting you to the member area.</p>";

@@ -36,12 +36,12 @@ catch (Exception $e)
 
     </head>
     <style>
-    #plusieurs_colonnes{
-    -moz-column-count: 4;
-    -webkit-column-count: 4;
-    column-count: 4;
-    list-style: none;
-}
+        #plusieurs_colonnes{
+            -moz-column-count: 4;
+            -webkit-column-count: 4;
+            column-count: 4;
+            list-style: none;
+        }
     </style>
 
     <body>
@@ -74,15 +74,15 @@ catch (Exception $e)
 
                             <ul class="dropdown-menu" id="plusieurs_colonnes">
                                 <?php
-                                
+
                                 $select = $bdd->query("SELECT * FROM categories");
-                                
+
                                 while ($Cat = $select->fetch())
                                 {
                                 ?>
-                                
+
                                 <li class="kopie"><a href="#"> <?php echo $Cat['name'] ?> </a></li>
-                                
+
                                 <?php }
                                 ?>
                             </ul>
@@ -106,7 +106,9 @@ catch (Exception $e)
         </div>
 
         <footer style="color:white" class="footer container-fluid text-center">
-            <p>Centaur Adviser Copyright</p>  
+            <p>Centaur Adviser Copyright</p> 
+
+
         </footer>
 
     </body>
