@@ -22,7 +22,21 @@ $id_article = $_POST['id'];
 $article = $bdd->query("SELECT * FROM article_list WHERE id = $id_article LIMIT 1");
 $data = $article->fetch();
 
-$bdd->query("INSERT INTO `historic` ( `UserID`,`articleId`, `date`) VALUES( 1, ),");
+
+// Select if already exist 
+$select = $bdd->query("SELECT * FROM historic WHERE UserID='".$_SESSION['UserId']."' AND articleId= $id_article LIMIT 1");
+
+$Currentdate = date("Y-m-d");
+
+
+if($select->fetch() == null)
+{
+    $bdd->query("INSERT INTO historic(UserID,articleId,date) VALUES ('".$_SESSION['UserId']."','$id_article','$Currentdate')");
+}
+else
+{
+    $bdd->query("UPDATE historic SET date = '".$Currentdate."' WHERE UserID='".$_SESSION['UserId']."' AND articleId= $id_article");
+}
 
 
 ?>
@@ -110,7 +124,7 @@ $bdd->query("INSERT INTO `historic` ( `UserID`,`articleId`, `date`) VALUES( 1, )
 
 
         <?php 
-            if($data['rate']){
+    if($data['rate']){
 
         ?>
         document.getElementById("<?=$data['rate']?>-star").checked = true;

@@ -26,6 +26,8 @@ $new_RatingList = implode(";",array_filter($RatingList));
 
 $newRate = (array_sum($RatingList)/$new_numberRate);
 
+$bdd->query("UPDATE historic SET rating='".$rate."' WHERE UserID='".$_SESSION['UserId']."' AND articleId='".$idArticle."'");
+
 $bdd->query("UPDATE article_list SET rate_historic = '".$new_RatingList."' WHERE id =  $idArticle");
 
 $bdd->query("UPDATE article_list SET number_rate = '".$new_numberRate."' WHERE id =  $idArticle");

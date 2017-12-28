@@ -80,6 +80,6 @@ CREATE TABLE `pfe`.`historic` (
     `UserID` INT(25),
     `rating` int(11),
     `articleId` int(11),
-    `date` datetime
+    `date` DATE
 
 );
