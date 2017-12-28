@@ -82,33 +82,44 @@ $data = $article->fetch();
 </style>
 <h1> <?=$data['title']?> </h1>
 <p> <?=$data['content']?> </p>
+<div id="SetRate">
+    <ul class="rate-area" >
+        <hr />
+        <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
+        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
 
-<body>
-    <section>
-        <ul class="rate-area" id="SetRate">
-            <hr />
-            <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
-            <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
-            <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
-            <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
-            <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
+    </ul>
+</div>
 
-        </ul>
 
-    </section>
-
-</body>
 
 <script type="text/javascript">
-    
-    
 
-    $('#SetRate').click(function(){
-        
+
+
+    $('#SetRate').unbind('click').click(function(){
+
         var Rate = $("input[name='rating']:checked").val();
+        var clicked_id = <?=$data['id']?>;
         console.log(Rate);
         
+        var datastr = 'rate='+Rate;
+        $("#main").load("rate.php",{"id":clicked_id,"rate":Rate});
+        $.ajax({
+            type:'POST',
+            url:'rate.php',
+            data:datastr,
+            success:function(){
+                console.log("article.php POST SUCCESS");
+            }
+
         });
-    
+
+
+    });
+
 </script>
 
