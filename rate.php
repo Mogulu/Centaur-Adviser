@@ -36,16 +36,16 @@ $bdd->query("UPDATE article_list SET rate = '".$newRate."' WHERE id =  $idArticl
 
 <script>
     alert("THANKS FOR VOTING ;)");
-var clicked_id = <?php echo $idArticle; ?>;
-var datastr = 'id='+clicked_id;
-$("#main").load("article.php",{"id":clicked_id});
-$.ajax({
-type:'POST',
-url:'article.php',
-data:datastr,
-success:function(){
-console.log("rate.php POST SUCCESS");
-}
+    var clicked_id = <?php echo $idArticle; ?>;
+    var datastr = 'id='+clicked_id;
+    $("#main").load("article.php",{"id":clicked_id});
+    $.ajax({
+        type:'POST',
+        url:'article.php',
+        data:datastr,
+        success:function(){
+            //console.log("rate.php POST SUCCESS");
+        }
 
-});
+    });
 </script>

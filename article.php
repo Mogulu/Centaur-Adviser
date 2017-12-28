@@ -19,6 +19,7 @@ catch (Exception $e)
 $id_article = $_POST['id'];
 
 $article = $bdd->query("SELECT * FROM article_list WHERE id = $id_article LIMIT 1");
+
 $data = $article->fetch();
 
 ?>
@@ -81,6 +82,7 @@ $data = $article->fetch();
 
 </style>
 <h1> <?=$data['title']?> </h1>
+
 <p> <?=$data['content']?> </p>
 
 <body>
@@ -103,6 +105,19 @@ $data = $article->fetch();
 
     <script type="text/javascript">
 
+
+        <?php 
+            if($data['rate']){
+
+        ?>
+        document.getElementById("<?=$data['rate']?>-star").checked = true;
+
+        <?php
+
+    }
+
+        ?>
+
         $('#SetRate input').unbind('click').click(function(){
 
             var Rate = $("input[name='rating']:checked").val();
@@ -116,7 +131,7 @@ $data = $article->fetch();
                 url:'rate.php',
                 data:datastr,
                 success:function(){
-                    console.log("article.php POST SUCCESS");
+                    //console.log("article.php POST SUCCESS");
                 }
 
             });

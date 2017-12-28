@@ -37,7 +37,7 @@ INSERT INTO `pfe`.article_list (`id`, `title`,`author`,`date`,`rate`,`number_rat
 VALUES (NULL, 'jojolabricot','clara','2017-05-25',NULL ,NULL, 'kids', 'img/4.jpg','ah bah dsadsa', '<div class="panel-footer">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</div>');
 
 INSERT INTO `pfe`.article_list (`id`, `title`,`author`,`date`,`rate`,`number_rate`,`category`,`vignette_url`,`resume`,`content`)
-VALUES (NULL, 'loreneipsips','urabnfoot','2017-10-05',NULL ,NULL, 'travels', 'img/5.jpg','ah baaaaah oui', '<div class="panel-footer">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</div>');
+VALUES (NULL, 'loreneipsips','urabnfoot','2017-10-05',NULL ,NULL, 'health', 'img/5.jpg','ah baaaaah oui', '<div class="panel-footer">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</div>');
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
